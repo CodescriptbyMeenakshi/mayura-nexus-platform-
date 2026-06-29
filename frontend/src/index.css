@@ -1,3 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #FDFBF7;
+    color: #1E293B;
+    @apply font-sans transition-colors duration-300 antialiased selection:bg-amber-100 selection:text-emerald-900;
+  }
+  
+  body.dark {
+    background-color: #0B0F19;
+    color: #E2E8F0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Inter', sans-serif;
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Cards */
+  .glass-card {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    @apply backdrop-blur-md shadow-xl transition-all duration-300;
+  }
+  .dark .glass-card {
+    background-color: rgba(21, 28, 44, 0.7);
+    border: 1px solid rgba(30, 41, 59, 0.4);
+    @apply backdrop-blur-md shadow-2xl;
+  }
+
+  /* Glassmorphic Interactive Element */
+  .glass-button {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #0A4D3C;
+    @apply backdrop-blur-sm font-medium shadow-sm hover:shadow hover:bg-white hover:text-emerald-950 transition-all duration-200;
+  }
+  .dark .glass-button {
+    background-color: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(71, 85, 105, 0.5);
+    color: #C5A880;
+    @apply hover:bg-slate-800 hover:text-amber-200 shadow-md hover:shadow-lg;
+  }
+
+  /* Sticky Navigation Bar */
+  .glass-navbar {
+    background-color: rgba(253, 251, 247, 0.8);
+    border-bottom: 1px solid rgba(10, 77, 60, 0.05);
+    @apply backdrop-blur-lg shadow-sm transition-all duration-300;
+  }
+  .dark .glass-navbar {
+    background-color: rgba(11, 15, 25, 0.8);
+    border-bottom: 1px solid rgba(30, 41, 59, 0.55);
+    @apply backdrop-blur-lg shadow-md;
+  }
+
+  /* Customized Form Inputs */
+  .form-input {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid #E2E8F0;
+    @apply w-full px-4 py-3 focus:bg-white focus:border-emerald-700 rounded-xl outline-none transition-all duration-200 text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-emerald-700/20;
+  }
+  .dark .form-input {
+    background-color: rgba(11, 15, 25, 0.4);
+    border: 1px solid #1E293B;
+    @apply focus:bg-brand-darkBg focus:border-amber-500 text-slate-100 placeholder:text-slate-500 focus:ring-2 focus:ring-amber-500/20;
+  }
+
+  /* Scrolling Notice Ticker Container */
+  .ticker-wrap {
+    background-color: #0A4D3C;
+    color: #D8BF9D;
+    @apply w-full overflow-hidden py-2 text-sm font-medium tracking-wide flex items-center relative z-50 shadow-sm border-b border-emerald-800/20;
+  }
+  .dark .ticker-wrap {
+    background-color: #151C2C;
+    color: #C5A880;
+    @apply border-b border-slate-800/60;
+  }
+}
+
+/* Custom Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: #FDFBF7;
+}
+.dark ::-webkit-scrollbar-track {
+  background-color: #0B0F19;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(10, 77, 60, 0.25);
+  @apply rounded-full hover:bg-emerald-800/40 transition-colors;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background-color: rgba(197, 168, 128, 0.2);
+  @apply rounded-full hover:bg-amber-500/40 transition-colors;
+}
